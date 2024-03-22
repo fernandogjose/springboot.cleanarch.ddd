@@ -1,16 +1,20 @@
 package com.cleanarch.ddd.domain.mappers;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.config.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Mapper {
 
-    private static final ModelMapper mapper = new ModelMapper();
+    private static final ModelMapper modelMapper = new ModelMapper();
 
     public static <O, D> D parseObject(O origin, Class<D> destination) {
-        return mapper.map(origin, destination);
+        modelMapper.getConfiguration()
+                .setFieldAccessLevel(Configuration.AccessLevel.PRIVATE)
+                .setFieldMatchingEnabled(true);
+        return modelMapper.map(origin, destination);
     }
 
     public static <O, D> List<D> parseObject(List<O> origin, Class<D> destination) {
