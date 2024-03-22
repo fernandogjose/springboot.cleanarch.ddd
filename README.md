@@ -11,6 +11,7 @@ API Rest desenvolvida em Java Spring Boot, seguindo uma arquitetura limpa e padr
 - Hibernate
 - Spring Boot
 - Mockito
+- Maven
 
 ## Ferramentas
 - MySQL (MariaDB)
