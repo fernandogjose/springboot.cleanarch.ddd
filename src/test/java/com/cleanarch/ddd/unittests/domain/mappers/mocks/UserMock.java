@@ -16,7 +16,7 @@ public class UserMock {
         return mockVo(0L);
     }
 
-    public List<User> mockModelList() {
+    public List<User> mockModels() {
         List<User> users = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             users.add(mockModel((long) i));
@@ -24,7 +24,7 @@ public class UserMock {
         return users;
     }
 
-    public List<UserVo> mockVoList() {
+    public List<UserVo> mockVos() {
         List<UserVo> usersVo = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             usersVo.add(mockVo((long) i));

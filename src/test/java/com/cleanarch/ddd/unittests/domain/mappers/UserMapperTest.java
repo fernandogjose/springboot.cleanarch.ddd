@@ -28,11 +28,25 @@ public class UserMapperTest {
     }
 
     @Test
+    public void whenParseModelsToVos_shouldMapper_withSuccess() {
+        var userVos = Mapper.parseObject(userMock.mockModels(), UserVo.class);
+
+        assertEquals(userVos.size(), 14);
+    }
+
+    @Test
     public void whenParseVoToModel_shouldMapper_withSuccess() {
         var user = Mapper.parseObject(userMock.mockVo(), User.class);
 
         assertEquals(0L, user.getId());
         assertEquals("username0", user.getUsername());
         assertEquals("password0", user.getPassword());
+    }
+
+    @Test
+    public void whenParseVosToModels_shouldMapper_withSuccess() {
+        var userVos = Mapper.parseObject(userMock.mockVos(), User.class);
+
+        assertEquals(userVos.size(), 14);
     }
 }
