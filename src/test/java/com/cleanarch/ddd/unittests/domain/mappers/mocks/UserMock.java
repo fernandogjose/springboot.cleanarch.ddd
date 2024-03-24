@@ -32,11 +32,11 @@ public class UserMock {
         return usersVo;
     }
 
-    public User mockModel(Long id) {
+    private User mockModel(Long id) {
         return new User(id, "username" + id, "password" + id);
     }
 
-    public UserVo mockVo(Long id) {
+    private UserVo mockVo(Long id) {
         var userVo = new UserVo();
         userVo.setId(id);
         userVo.setUsername("username" + id);
