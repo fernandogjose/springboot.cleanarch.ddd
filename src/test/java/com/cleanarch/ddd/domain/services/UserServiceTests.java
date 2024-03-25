@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -53,10 +55,11 @@ public class UserServiceTests {
         assertEquals(userResult.getPassword(), user.getPassword());
     }
 
-    @Test
-    void create_shouldReturnRequiredException_whenUsernameIsEmptyOrNull() {
+    @ParameterizedTest
+    @ValueSource(strings = {""})
+    void create_shouldReturnRequiredException_whenUsernameIsEmptyOrNull(String username) {
         var userVoRequest = userMock.mockVo();
-        userVoRequest.setUsername("");
+        userVoRequest.setUsername(username);
 
         Exception exception = assertThrows(RequiredException.class, () -> userService.create(userVoRequest));
 
