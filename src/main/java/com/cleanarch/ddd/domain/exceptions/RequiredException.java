@@ -11,10 +11,6 @@ public class RequiredException extends RuntimeException {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public RequiredException() {
-        super("Object is required");
-    }
-
     public RequiredException(String message) {
         super(message);
     }
