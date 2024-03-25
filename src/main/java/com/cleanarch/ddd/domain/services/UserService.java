@@ -1,5 +1,6 @@
 package com.cleanarch.ddd.domain.services;
 
+import com.cleanarch.ddd.domain.exceptions.RequiredException;
 import com.cleanarch.ddd.domain.exceptions.ResourceNotFoundException;
 import com.cleanarch.ddd.domain.mappers.Mapper;
 import com.cleanarch.ddd.domain.models.User;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
 @Service
@@ -32,6 +34,13 @@ public class UserService {
     }
 
     public UserVo create(UserVo userVoRequest) {
+
+        if (Objects.equals(userVoRequest.getUsername(), ""))
+            throw new RequiredException("Nome do usuário é obrigatório");
+
+        if (Objects.equals(userVoRequest.getPassword(), ""))
+            throw new RequiredException("Senha é obrigatório");
+
         logger.info("Add user");
         var userToCreate = Mapper.parseObject(userVoRequest, User.class);
         var userCreated = userRepository.save(userToCreate);
