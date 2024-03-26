@@ -2,6 +2,7 @@ package com.cleanarch.ddd.application.controllers;
 
 import com.cleanarch.ddd.domain.valueObjects.UserVo;
 import com.cleanarch.ddd.domain.services.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

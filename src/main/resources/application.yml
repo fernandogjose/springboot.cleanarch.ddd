@@ -12,3 +12,7 @@ spring:
     hibernate:
       ddl-auto: update
       dialect: org.hibernate.dialect.MySQLDialect
+springdoc:
+  pathsToMatch: /api/v1/**
+  swagger-ui:
+    use-root-path: true
