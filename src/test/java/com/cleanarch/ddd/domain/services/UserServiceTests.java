@@ -39,7 +39,12 @@ public class UserServiceTests {
 
     @Test
     void findAll_shouldReturnListOfUser_whenSuccess() {
+        var users = userMock.mockModels();
+        when(userRepository.findAll()).thenReturn(users);
 
+        var usersResult = userService.findAll();
+
+        assertEquals(14, (long) usersResult.size());
     }
 
     @Test
