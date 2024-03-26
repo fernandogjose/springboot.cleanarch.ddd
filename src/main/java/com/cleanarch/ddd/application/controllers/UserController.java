@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/user")
+@Tag(name = "Usuário", description = "CRUD de usuário")
 public class UserController {
 
     @Autowired
